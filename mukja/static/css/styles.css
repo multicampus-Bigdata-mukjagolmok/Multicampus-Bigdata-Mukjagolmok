@@ -10327,6 +10327,7 @@ figure.effect-ming h2 {
 	transform: scale(1.5);
 }
 
+a.tm-paging-link.active + h2,
 figure.effect-ming:hover figcaption::before,
 figure.effect-ming:hover h2 {
 	opacity: 1 !important;
@@ -10334,7 +10335,10 @@ figure.effect-ming:hover h2 {
 	transform: scale3d(1,1,1);
 }
 
+a.tm-paging-link.active + h2,
 figure.effect-ming:hover figcaption { background-color: rgba(58,52,42,0); }
+
+a.tm-paging-link.active + h2,
 figure.effect-ming:hover img { opacity: 0.4; }
 
 .align-items-center {
@@ -10355,7 +10359,7 @@ figure.effect-ming:hover img { opacity: 0.4; }
 }
 
 .tm-video-item {
-    margin: 0 !important;
+    margin: 0;
     position: relative;
     overflow: hidden;
     text-align: center;
