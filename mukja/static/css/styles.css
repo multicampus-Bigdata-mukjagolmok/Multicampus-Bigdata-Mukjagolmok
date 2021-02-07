@@ -10288,8 +10288,8 @@ form .row:first-child .floating-label-form-group {
 .hidden {
   display: none !important;
 }
- /* end source */
 
+/* added from catalog-z template */
 
 figure.effect-ming {
 	background: #030c17;
@@ -10376,8 +10376,7 @@ figure.effect-ming:hover img { opacity: 0.4; }
 .tm-video-item figcaption {
     padding: 2em;
     color: #fff;
-    text-transform: uppercase;
-    font-size: 1.25em;
+    font-size: 1.3em;
     -webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -10413,3 +10412,5 @@ figure.effect-ming:hover img { opacity: 0.4; }
 .tm-video-item p {
     margin: 0;
 }
+
+ /* end source */
