@@ -10252,7 +10252,7 @@ form .row:first-child .floating-label-form-group {
   border: 1px solid #2F956D;
   margin: 7px;
 }
-
+/*
 .tm-paging-link {
   padding: 50px 100px;
   display: flex;
@@ -10269,7 +10269,7 @@ form .row:first-child .floating-label-form-group {
   background-color: #2F956D;
   color: black;
 }
-
+*/
 .tm-gallery-title {
   padding: auto;
   font-size: 1.3rem;
@@ -10291,6 +10291,16 @@ form .row:first-child .floating-label-form-group {
  /* end source */
 
 
+figure.effect-ming {
+	background: #030c17;
+}
+
+figure.effect-ming img {
+	opacity: 1;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+}
+
  figure.effect-ming figcaption::before {
 	position: absolute;
 	top: 30px;
@@ -10298,9 +10308,9 @@ form .row:first-child .floating-label-form-group {
 	bottom: 30px;
 	left: 30px;
 	border: 2px solid #fff;
-	box-shadow: 0 0 0 30px rgba(0,0,0,0.2);
+	box-shadow: 0 0 0 30px rgba(255,255,255,0.2);
 	content: '';
-	opacity: 0;
+	opacity: 1;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
 	-webkit-transform: scale3d(1.4,1.4,1);
@@ -10308,7 +10318,8 @@ form .row:first-child .floating-label-form-group {
 }
 
 figure.effect-ming h2 {
-    font-size: 1.3em;
+    font-size: 1.5em;
+    text-shadow: 2px 2px gray;
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
@@ -10318,7 +10329,7 @@ figure.effect-ming h2 {
 
 figure.effect-ming:hover figcaption::before,
 figure.effect-ming:hover h2 {
-	opacity: 1;
+	opacity: 1 !important;
 	-webkit-transform: scale3d(1,1,1);
 	transform: scale3d(1,1,1);
 }
@@ -10356,7 +10367,6 @@ figure.effect-ming:hover img { opacity: 0.4; }
     display: block;
     min-height: 100%;
     max-width: 100%;
-    opacity: 0.8;
 }
 
 .tm-video-item figcaption {
