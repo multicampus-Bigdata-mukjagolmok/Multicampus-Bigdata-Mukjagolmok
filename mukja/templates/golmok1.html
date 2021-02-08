@@ -37,9 +37,8 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
+            <img src="{% static 'assets/img/sinrim_sundae1.png' %}" style="margin-bottom: 50px; border-radius: 7px 0px 0px 7px;"><img src="{% static 'assets/img/sinrim_sundae2.png' %}" style="margin-bottom: 50px; border-radius: 0px 7px 7px 0px;">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="{% static 'assets/img/avataaars.svg' %}" alt="" />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
                 <!-- Icon Divider-->
@@ -54,85 +53,114 @@
         </header>
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
-            <div class="row tm-gallery">
-                <div id="tm-gallery-page-pizza" class="tm-gallery-page hidden">
-                    <h4 class="tm-gallery-title">This is Pizza!</h4>
-                </div>
-                <div id="tm-gallery-page-salad" class="tm-gallery-page hidden">
-                    <h4 class="tm-gallery-title">This is Salad!</h4>
-                </div>
-                <div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">
-                    <h4 class="tm-gallery-title">This is Noodle!</h4>
-                </div>
-                <div id="tm-gallery-page-meatball" class="tm-gallery-page hidden">
-                    <h4 class="tm-gallery-title">This is Meatball!</h4>
-                </div>
+            <div class="tm-paging-links">
+                <nav>
+                    <ul>
+                        <li class="tm-paging-item">
+                            <figure class="effect-ming tm-video-item">
+                                <img src="{% static 'assets/img/01.jpg' %}" alt="Image" class="img-fluid">
+                                <figcaption class="d-flex align-items-center justify-content-center">
+                                    <a href="#" class="tm-paging-link">first</a>
+                                    <h2>또순이원조순대 본점</h2>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="tm-paging-item">
+                            <figure class="effect-ming tm-video-item">
+                                <img src="{% static 'assets/img/02.jpg' %}" alt="Image" class="img-fluid">
+                                <figcaption class="d-flex align-items-center justify-content-center">
+                                    <a href="#" class="tm-paging-link">second</a>
+                                    <h2>삼촌네</h2>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="tm-paging-item">
+                            <figure class="effect-ming tm-video-item">
+                                <img src="{% static 'assets/img/03.png' %}" alt="Image" class="img-fluid">
+                                <figcaption class="d-flex align-items-center justify-content-center">
+                                    <a href="#" class="tm-paging-link">third</a>
+                                    <h2>여수집</h2>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="tm-paging-item">
+                            <figure class="effect-ming tm-video-item">
+                                <img src="{% static 'assets/img/04.jpg' %}" alt="Image" class="img-fluid">
+                                <figcaption class="d-flex align-items-center justify-content-center">
+                                    <a href="#" class="tm-paging-link">forth</a>
+                                    <h2>장가계 목포 맛순대</h2>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </nav>
             </div>
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">'{{먹자골목}}' View More</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="" />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/cake.png' %}" alt="" />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/circus.png' %}" alt="" />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/game.png' %}" alt="" />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/safe.png' %}" alt="" />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/submarine.png' %}" alt="" />
-                        </div>
-                    </div>
+            </div>
+            <div class="row tm-gallery">
+                <div id="tm-gallery-page-first" class="tm-gallery-page hidden">
+                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
+                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
+                        {% for i in menu %}
+                            {% if i.restaurant_id == "또순이원조순대 본점" %}
+                                <tr>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.price }}원</td>
+                                    <td>{{ i.description }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+                <div id="tm-gallery-page-second" class="tm-gallery-page hidden">
+                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
+                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
+                        {% for i in menu %}
+                            {% if i.restaurant_id == "삼촌네" %}
+                                <tr>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.price }}원</td>
+                                    <td>{{ i.description }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+                <div id="tm-gallery-page-third" class="tm-gallery-page hidden">
+                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
+                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
+                        {% for i in menu %}
+                            {% if i.restaurant_id == "여수집" %}
+                                <tr>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.price }}원</td>
+                                    <td>{{ i.description }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+                <div id="tm-gallery-page-forth" class="tm-gallery-page hidden">
+                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
+                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
+                        {% for i in menu %}
+                            {% if i.restaurant_id == "장가계 목포 맛순대" %}
+                                <tr>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.price }}원</td>
+                                    <td>{{ i.description }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
         </section>
@@ -392,5 +420,21 @@
         <script src="{% static 'assets/mail/contact_me.js' %}"></script>
         <!-- Core theme JS-->
         <script src="{% static 'js/scripts.js' %}"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+	    <script src="{% static 'js/parallax.min.js' %}"></script>
+    	<script>
+            $(document).ready(function(){
+                // Handle click on paging links
+                $('.tm-paging-link').click(function(e){
+                    e.preventDefault();
+
+                    var page = $(this).text().toLowerCase();
+                    $('.tm-gallery-page').addClass('hidden');
+                    $('#tm-gallery-page-' + page).removeClass('hidden');
+                    $('.tm-paging-link').removeClass('active');
+                    $(this).addClass("active");
+                });
+            });
+        </script>
     </body>
 </html>
