@@ -10250,7 +10250,7 @@ form .row:first-child .floating-label-form-group {
   list-style: none;
   display: inline-block;
   border: 1px solid #2F956D;
-  margin: 7px;
+  margin: 15px; /* margin을 7px에서 15px로 바꿈 */
 }
 /*
 .tm-paging-link {
