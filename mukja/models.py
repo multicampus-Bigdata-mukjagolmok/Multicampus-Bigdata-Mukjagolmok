@@ -23,6 +23,8 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return '/mukja/golmok/{}/{}/'.format(self.golmok.pk, self.pk)
 
 class Menu(models.Model):
     name = models.CharField(max_length=25)

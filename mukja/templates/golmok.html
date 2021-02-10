@@ -40,7 +40,7 @@
             <img src="{% static 'assets/img/sinrim_sundae1.png' %}" style="margin-bottom: 50px; border-radius: 7px 0px 0px 7px;"><img src="{% static 'assets/img/sinrim_sundae2.png' %}" style="margin-bottom: 50px; border-radius: 0px 7px 7px 0px;">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">{{ golmok.name }}</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">{{ mukjagolmok.name }}</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -48,118 +48,36 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">{{ golmok.description|linebreaksbr }}</p>
+                <p class="masthead-subheading font-weight-light mb-0">{{ mukjagolmok.description|linebreaksbr }}</p>
             </div>
         </header>
         <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="tm-paging-links">
-                <nav>
-                    <ul>
-                        <li class="tm-paging-item">
-                            <figure class="effect-ming tm-video-item">
-                                <img src="{% static 'assets/img/restaurant-id1.png' %}" alt="Image" class="img-fluid">
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <a href="#" class="tm-paging-link">first</a>
-                                    <h2>{{ firstname }}</h2>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="tm-paging-item">
-                            <figure class="effect-ming tm-video-item">
-                                <img src="{% static 'assets/img/restaurant-id2.png' %}" alt="Image" class="img-fluid">
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <a href="#" class="tm-paging-link">second</a>
-                                    <h2>{{ secondname }}</h2>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="tm-paging-item">
-                            <figure class="effect-ming tm-video-item">
-                                <img src="{% static 'assets/img/restaurant-id3.png' %}" alt="Image" class="img-fluid">
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <a href="#" class="tm-paging-link">third</a>
-                                    <h2>{{ thirdname }}</h2>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="tm-paging-item">
-                            <figure class="effect-ming tm-video-item">
-                                <img src="{% static 'assets/img/restaurant-id4.png' %}" alt="Image" class="img-fluid">
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <a href="#" class="tm-paging-link">forth</a>
-                                    <h2>{{ forthname }}</h2>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">View More</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-            </div>
-            <div class="row tm-gallery">
-                <div id="tm-gallery-page-first" class="tm-gallery-page hidden">
-                    <h3>{{ firstname }}</h3>
-                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
-                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
-                        {% for i in first %}
-                            <tr>
-                                <td>{{ i.name }}</td>
-                                <td>{{ i.price }}원</td>
-                                <td>{{ i.description }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-                <div id="tm-gallery-page-second" class="tm-gallery-page hidden">
-                    <h3>{{ secondname }}</h3>
-                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
-                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
-                        {% for i in second %}
-                            <tr>
-                                <td>{{ i.name }}</td>
-                                <td>{{ i.price }}원</td>
-                                <td>{{ i.description }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-                <div id="tm-gallery-page-third" class="tm-gallery-page hidden">
-                    <h3>{{ thirdname }}</h3>
-                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
-                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
-                        {% for i in third %}
-                            <tr>
-                                <td>{{ i.name }}</td>
-                                <td>{{ i.price }}원</td>
-                                <td>{{ i.description }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-                <div id="tm-gallery-page-forth" class="tm-gallery-page hidden">
-                    <h3>{{ forthname }}</h3>
-                    <table class="tm-gallery-title" border="1px" cellpadding="20px" style="margin: auto;">
-                        <tr><th>Menu</th><th>Price</th><th>Description</th></tr>
-                        {% for i in forth %}
-                            <tr>
-                                <td>{{ i.name }}</td>
-                                <td>{{ i.price }}원</td>
-                                <td>{{ i.description }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-            </div>
-        </section>
+        <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+
+        <h1 class="my-4">Restaurants
+        </h1>
+        {% for restaurant in restaurants %}
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">{{ restaurant.name }}</h2>
+            <p class="card-text">{{ restaurant.description }}</p>
+            <a href="{{ restaurant.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2020 by
+            <a href="#">Start Bootstrap</a>
+          </div>
+        </div>
+        {% endfor %}
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
