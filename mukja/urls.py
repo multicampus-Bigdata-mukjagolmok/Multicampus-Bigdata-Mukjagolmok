@@ -4,6 +4,7 @@ from . import views
 # app_name = 'mukja'	# 이름 공간
 urlpatterns = [
     path('', views.base, name = 'base'),
-    path('index/', views.index, name='base'),
+    path('index/', views.index, name='index'),
+    path('aboutus/', views.aboutus, name='aboutus'),
     path('golmok/<golmokname>', views.golmok, name='golmok'),
 ]

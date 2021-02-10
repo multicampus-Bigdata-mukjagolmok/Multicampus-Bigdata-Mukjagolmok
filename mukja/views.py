@@ -9,6 +9,9 @@ def base(request):
 def index(request):
     return render(request, 'index.html')
 
+def aboutus(request):
+    return render(request, 'aboutus.html')
+
 def golmok(request, golmokname):
     golmok = Golmok.objects.get(name = golmokname)
     id = golmok.id
