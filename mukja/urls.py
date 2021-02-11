@@ -8,5 +8,5 @@ urlpatterns = [
     path('aboutus/', views.aboutus, name='aboutus'),
     path('golmok/<int:pk>/', views.golmok, name='golmok'),
     path('golmok/<int:fk>/<int:pk>/', views.restaurant),
-    # path('restaurant/', views.restaurant),
+    path('restaurant/', views.restaurant),
 ]
