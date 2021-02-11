@@ -19,6 +19,7 @@ class Restaurant(models.Model):
     description = models.CharField(max_length=500, null=True)
     rating = models.CharField(max_length=10)
     golmok = models.ForeignKey(Golmok, blank=True, null=True, on_delete=models.SET_NULL)
+    images = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.name
