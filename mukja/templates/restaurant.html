@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title></title>
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/blog-post.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+<style>
+    .commentdiv {
+        display: flex;
+        justify-content: center;
+    }
+    .commentdiv div {
+        display: inline-block;
+        padding: auto;
+        margin: 10px;
+        vertical-align: middle;
+    }
+
+
+     .table-users {
+         border: 1px solid #327a81;
+         border-radius: 10px;
+         box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+         max-width: calc(100% - 2em);
+         margin: 1em auto;
+         overflow: hidden;
+         width: 800px;
+    }
+     table {
+         width: 100%;
+    }
+     table td, table th {
+         color: #2b686e;
+         padding: 10px;
+    }
+     table td {
+         text-align: center;
+         vertical-align: middle;
+    }
+     table td:last-child {
+         font-size: 0.95em;
+         line-height: 1.4;
+         text-align: left;
+    }
+     table th {
+         background-color: #daeff1;
+         font-weight: 300;
+         text-align: center;
+    }
+     table tr:nth-child(2n) {
+         background-color: white;
+    }
+     table tr:nth-child(2n+1) {
+         background-color: #edf7f8;
+    }
+     @media screen and (max-width: 700px) {
+         table, tr, td {
+             display: block;
+        }
+         td:first-child {
+             position: absolute;
+             top: 50%;
+             transform: translateY(-50%);
+             width: 100px;
+        }
+         td:not(:first-child) {
+             clear: both;
+             margin-left: 100px;
+             padding: 4px 20px 4px 90px;
+             position: relative;
+             text-align: left;
+        }
+         td:not(:first-child):before {
+             color: #91ced4;
+             content: '';
+             display: block;
+             left: 0;
+             position: absolute;
+        }
+         td:nth-child(2):before {
+             content: 'Name:';
+        }
+         td:nth-child(3):before {
+             content: 'Email:';
+        }
+         td:nth-child(4):before {
+             content: 'Phone:';
+        }
+         td:nth-child(5):before {
+             content: 'Comments:';
+        }
+         tr {
+             padding: 10px 0;
+             position: relative;
+        }
+         tr:first-child {
+             display: none;
+        }
+    }
+     @media screen and (max-width: 500px) {
+         td:first-child {
+             background-color: #c8e7ea;
+             border-bottom: 1px solid #91ced4;
+             border-radius: 10px 10px 0 0;
+             position: relative;
+             top: 0;
+             transform: translateY(0);
+             width: 100%;
+        }
+         td:not(:first-child) {
+             margin: 0;
+             padding: 5px 1em;
+             width: 100%;
+        }
+         td:not(:first-child):before {
+             font-size: 0.8em;
+             padding-top: 0.3em;
+             position: relative;
+        }
+         td:last-child {
+             padding-bottom: 1rem !important;
+        }
+         tr {
+             background-color: white !important;
+             border: 1px solid #6cbec6;
+             border-radius: 10px;
+             box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+             margin: 0.5rem 0;
+             padding: 0;
+        }
+         .table-users {
+             border: none;
+             box-shadow: none;
+             overflow: visible;
+        }
+    }
+
+</style>
+
+      <div class="col-lg-8">
+
+<!--        <hr>-->
+
+<!--        &lt;!&ndash; Preview Image &ndash;&gt;-->
+<!--        <img class="img-fluid rounded" src="{{ restaurant.images }}" alt="">-->
+
+        <hr>
+          {% for menu in menus %}
+          <p> {{ menu.name }} : {{ menu.price }} </p>
+          {% endfor %}
+
+        <!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body commentdiv">
+            <form method="post" id="commentform{{ restaurant.id }}">
+              <div class="form-group">
+                  <span> Your Name : <input style="width:100px;" class="form-control" type="text" name="name" minlength="2" maxlength="15" required></span>
+                  <span style="margin-left: 10px;"> Password : <input style="width:100px;" class="form-control" type="text" name="password" maxlength="10" required></span>
+              </div>
+              <div class="form-group">
+                <textarea name="comment" class="form-control" cols="40" rows="4" required></textarea>
+              </div>
+              <div>
+                  <button id="commentbutton" value="submit" class="btn btn-primary">submit</button>
+              </div>
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="showcomment{{ restaurant.id }}">
+          {% if comments %}
+          <div class="table-users">
+            <table border="1px" cellspacing="0">
+                <th>NAME</th><th width="400">COMMENT</th>
+                {% for comment in comments %}
+                <tr><td>{{ comment.name }}</td><td>{{ comment.comment }}</td></tr>
+                {% endfor %}
+            </table>
+          </div>
+          {% endif %}
+
+      </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+        $("#commentform" + {{ restaurant.id }}).on("submit", function (e) {
+            var dataString = $(this).serialize(); // form 태그에 입력한 내용을 받아와서 변수에 저장
+            $.ajax({
+              type: "POST",
+              url: "/mukja/golmok/" + {{ golmok_id }} + "/" + {{ restaurant.id }} + "/",
+              data: dataString,
+              success: function () {
+                $("#showcomment" + {{ restaurant.id }}).load("/mukja/golmok/" + {{ golmok_id }} + "/" + {{ restaurant.id }} + "/" + " #showcomment" + {{ restaurant.id }}); // submit 하면 아래에 뜸
+                $("#commentform" + {{ restaurant.id }})[0].reset(); // submit 을 누르면 텍스트 칸 내용이 다 지워짐
+              }
+            });
+            return false; // 새로고침 방지
+        });
+    </script>
+
+</body>
+
+</html>
