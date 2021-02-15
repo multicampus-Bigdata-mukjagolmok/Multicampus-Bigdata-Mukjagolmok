@@ -37,7 +37,7 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
-            <img src="{% static 'assets/img/sinrim_sundae1.png' %}" style="margin-bottom: 50px; border-radius: 7px 0px 0px 7px;"><img src="{% static 'assets/img/sinrim_sundae2.png' %}" style="margin-bottom: 50px; border-radius: 0px 7px 7px 0px;">
+            <img src="{{ mukjagolmok.head_image1.url }}" style="margin-bottom: 50px; border-radius: 7px 0px 0px 7px;"> <img src="{{ mukjagolmok.head_image2.url }}" style="margin-bottom: 50px; border-radius: 0px 7px 7px 0px;">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">{{ mukjagolmok.name }}</h1>
@@ -64,7 +64,7 @@
                         <img class="card-img-top" width="200" src="{{ restaurant.head_image.url }}" alt="Card image cap">
                         <div class="card-body">
                             <h2 class="card-title">{{ restaurant.name }}</h2>
-                            <p class="card-text">{{ restaurant.description }}</p>
+                            <p class="card-text">{{ restaurant.get_markdown_description | safe}}</p>
                             <a href="{{ restaurant.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                       </div>
                       <div class="card-footer text-muted">

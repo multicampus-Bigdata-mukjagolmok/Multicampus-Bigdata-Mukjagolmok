@@ -39,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mukja.apps.MukjaConfig',
+
+    'markdownx',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -102,8 +109,23 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
+
+
+# 소셜 로그인
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_EMAIL_REQUIRED = True # 이메일 필수!
+ACCOUNT_EMAIL_VERIFICATION = 'none' # 처음 회원가입하고 로그인 시 에러나는 거 방지
+
 
 LANGUAGE_CODE = 'ko-kr'
 
@@ -130,3 +152,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
 MEDIA_URL = '/media/'
+
+from datetime import datetime
+MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d')

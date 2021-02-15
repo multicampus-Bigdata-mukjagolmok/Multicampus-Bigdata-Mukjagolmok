@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from mukja.models import Golmok, Restaurant, Menu
-
+from mukja.models import Golmok, Restaurant, Menu, Comment
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -28,8 +28,11 @@ def restaurant(request, fk, pk):
     restaurant_pk = pk
     restaurant = Restaurant.objects.get(id=restaurant_pk)
     menus = Menu.objects.filter(restaurant_id=restaurant_pk)
+    comment = Comment.objects.filter(restaurant_id=restaurant_pk)
     context = {
         'restaurant': restaurant,
         'menus': menus,
+        'comment' : comment,
     }
+
     return render(request, "restaurant.html", context)

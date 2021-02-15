@@ -115,13 +115,21 @@
           </div>
         </div>
 
-        <!-- Single Comment -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        <div id = "comment-list">
+          <!-- Single Comment -->
+          {% for c in comment %}
+          <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+<!--              {% if comment.author == request.user %}-->
+<!--                <button class="btn btn-sm btn-info float-right" onclick="location.href='/blog/edit_comment/{{ comment.pk }}/'">edit</button>-->
+<!--                <button class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#deleteCommentModal-{{ comment.pk }}">delete</button>-->
+<!--              {% endif %}-->
+              <h5 class="mt-0">{{ c.author }} <small class="text-muted">{{ c.created_at }}</small></h5>
+              {{ c.get_markdown_content | safe}}
+            </div>
           </div>
+          {% endfor %}
         </div>
 
         <!-- Comment with nested comments -->
