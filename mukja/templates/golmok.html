@@ -61,7 +61,7 @@
                     {% for restaurant in restaurants %}
                     <!-- Blog Post -->
                     <div class="card portfolio-arrangement mb-5 mx-auto">
-                        <img class="card-img-top" height="200" src="{{ restaurant.images }}" alt="Card image cap">
+                        <img class="card-img-top" width="200" src="{{ restaurant.head_image.url }}" alt="Card image cap">
                         <div class="card-body">
                             <h2 class="card-title">{{ restaurant.name }}</h2>
                             <p class="card-text">{{ restaurant.description }}</p>
