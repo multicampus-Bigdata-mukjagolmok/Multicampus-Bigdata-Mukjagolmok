@@ -31,6 +31,8 @@ class Restaurant(models.Model):
     created = models.DateTimeField(auto_now_add=True)  # 포스트가 생성이 될 때 created에 자동으로 담아주게 된다.
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=1)
 
+
+
     def __str__(self):
         return self.name
 
@@ -60,4 +62,4 @@ class Comment(models.Model):
         return markdown(self.text)
 
     def get_absolute_url(self):
-        return self.post.get_absolute_url() + '#comment-id-{}'.format(self.pk)  # 해당 댓글로 바로 이동하기 위함.
+        return self.restaurant.get_absolute_url() + '#comment-id-{}'.format(self.pk)  # 해당 댓글로 바로 이동하기 위함.

@@ -17,7 +17,9 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles-golmok.css' %}" rel="stylesheet" />
     </head>
+
     <body id="page-top">
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
@@ -31,17 +33,37 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Food Alley</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/mukja/aboutus/">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">{{ user }} <span class="caret"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="download">
+                                {#                        <a class="dropdown-item" href="https://jsfiddle.net/bootswatch/3he50zsf/">Open in JSFiddle</a>#}
+                                {#                        <div class="dropdown-divider"></div>#}
+                                {#                        <a class="dropdown-item" href="../4/simplex/bootstrap.min.css">bootstrap.min.css</a>#}
+                                {#                        <a class="dropdown-item" href="../4/simplex/bootstrap.css">bootstrap.css</a>#}
+                                {#                        <div class="dropdown-divider"></div>#}
+                                {#                        <a class="dropdown-item" href="../4/simplex/_variables.scss">_variables.scss</a>#}
+                                <a class="dropdown-item" href="/accounts/logout/">Log out</a>
+                            </div>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+                                Log in
+                            </button>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
+
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
                 <div class="row justify-content-center mb-5 mx-5">
                             <img class="col-lg-6" src="{{ mukjagolmok.head_image1.url }}">
                             <img class="col-lg-6" src="{{ mukjagolmok.head_image2.url }}">
-                </div>
-            <div class="container d-flex align-items-center flex-column">
+                </div>            <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">{{ mukjagolmok.name }}</h1>
                 <!-- Icon Divider-->
@@ -54,6 +76,38 @@
                 <p class="masthead-subheading font-weight-light mb-0">{{ mukjagolmok.description|linebreaksbr }}</p>
             </div>
         </header>
+
+        {% load socialaccount %}
+
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Please Log in</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class = 'row'>
+                            <div class="col-md-6">
+                                <a role = 'button' class="btn btn-outline-primary" href="{% provider_login_url 'google'%}"><i class="fab fa-google"></i> Log in with Google</a>
+                                <a role = 'button' class="btn btn-outline-info" href="/accounts/login/"><i class="far fa-envelope"></i> Log in with Email</a>
+
+                            </div>
+                            <div class="col-md-6">
+                                <a role = 'button' class="btn btn-outline-info" href="/accounts/signup/"><i class="far fa-envelope"></i> Sign Up with Email</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 구글 이미지-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Portfolio Section-->
         <div class="container">
             <h1 class="my-4" style="text-align:center">Restaurants</h1>
@@ -67,11 +121,11 @@
                         <img class="card-img-top" src="{{ restaurant.head_image.url }}" alt="Card image cap">
                         <div class="card-body">
                             <h2 class="card-title">{{ restaurant.name }}</h2>
-                            <p class="card-text">{{ restaurant.get_markdown_description | safe}}</p>
+                            <p class="card-text">{{ restaurant.description | truncatewords:20 }}</p>
                             <a href="{{ restaurant.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                       </div>
                       <div class="card-footer text-muted">
-                        Posted on January 1, 2020 by
+                        Posted on {{ restaurant.created }}
                         <a href="#">Start Bootstrap</a>
                       </div>
                     </div>
@@ -79,6 +133,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
@@ -112,6 +167,7 @@
                 </div>
             </div>
         </footer>
+
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright © Your Website 2020</small></div>
@@ -132,19 +188,5 @@
         <script src="{% static 'js/scripts.js' %}"></script>
         <script src="{% static 'js/jquery.min.js' %}"></script>
 	    <script src="{% static 'js/parallax.min.js' %}"></script>
-    	<script>
-            $(document).ready(function(){
-                // Handle click on paging links
-                $('.tm-paging-link').click(function(e){
-                    e.preventDefault();
-
-                    var page = $(this).text().toLowerCase();
-                    $('.tm-gallery-page').addClass('hidden');
-                    $('#tm-gallery-page-' + page).removeClass('hidden');
-                    $('.tm-paging-link').removeClass('active');
-                    $(this).addClass("active");
-                });
-            });
-        </script>
     </body>
 </html>

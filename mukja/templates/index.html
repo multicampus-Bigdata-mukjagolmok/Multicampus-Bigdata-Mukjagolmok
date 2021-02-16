@@ -78,35 +78,37 @@
                 <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
             </div>
         </header>
-{% load socialaccount %}
+
+        {% load socialaccount %}
+
         <!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Please Log in</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class = 'row'>
-                    <div class="col-md-6">
-                        <a role = 'button' class="btn btn-outline-primary" href="{% provider_login_url 'google'%}"><i class="fab fa-google"></i> Log in with Google</a>
-                        <a role = 'button' class="btn btn-outline-info" href="/accounts/login/"><i class="far fa-envelope"></i> Log in with Email</a>
-
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Please Log in</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="col-md-6">
-                        <a role = 'button' class="btn btn-outline-info" href="/accounts/signup/"><i class="far fa-envelope"></i> Sign Up with Email</a>
+                    <div class="modal-body">
+                        <div class = 'row'>
+                            <div class="col-md-6">
+                                <a role = 'button' class="btn btn-outline-primary" href="{% provider_login_url 'google'%}"><i class="fab fa-google"></i> Log in with Google</a>
+                                <a role = 'button' class="btn btn-outline-info" href="/accounts/login/"><i class="far fa-envelope"></i> Log in with Email</a>
 
+                            </div>
+                            <div class="col-md-6">
+                                <a role = 'button' class="btn btn-outline-info" href="/accounts/signup/"><i class="far fa-envelope"></i> Sign Up with Email</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 구글 이미지-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
-<!-- 구글 이미지-->
-                </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
-    </div>
-</div>
 
         <!-- foodalley Section-->
         <section class="page-section foodalley" id="foodalley">
