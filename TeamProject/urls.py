@@ -23,6 +23,7 @@ urlpatterns = [
     path('mukja/', include ('mukja.urls')),
     path('markdownx/', include('markdownx.urls')),
     path('accounts/', include('allauth.urls')),
+    path('', include('mukja.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

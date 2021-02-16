@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,7 @@ MEDIA_URL = '/media/'
 
 from datetime import datetime
 MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d')
+
+LOGIN_REDIRECT_URL = '/mukja/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

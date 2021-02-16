@@ -7,6 +7,10 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('aboutus/', views.aboutus, name='aboutus'),
     path('golmok/<int:pk>/', views.golmok, name='golmok'),
+    # path('golmok/<int:pk>/new_comment/', views.new_comment),
     path('golmok/<int:fk>/<int:pk>/', views.restaurant),
+    path('golmok/<int:fk>/<int:pk>/new_comment/', views.new_comment),
+    path('delete_comment/<int:pk>/', views.delete_comment),
+    path('edit_comment/<int:pk>/', views.CommentUpdate.as_view()),
     path('restaurant/', views.restaurant),
 ]

@@ -64,11 +64,11 @@
                         <img class="card-img-top" src="{{ restaurant.head_image.url }}" alt="Card image cap">
                         <div class="card-body">
                             <h2 class="card-title">{{ restaurant.name }}</h2>
-                            <p class="card-text">{{ restaurant.get_markdown_description | safe}}</p>
+                            <p class="card-text">{{ restaurant.description | truncatewords:20 }}</p>
                             <a href="{{ restaurant.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                       </div>
                       <div class="card-footer text-muted">
-                        Posted on January 1, 2020 by
+                        Posted on {{ restaurant.created }}
                         <a href="#">Start Bootstrap</a>
                       </div>
                     </div>
