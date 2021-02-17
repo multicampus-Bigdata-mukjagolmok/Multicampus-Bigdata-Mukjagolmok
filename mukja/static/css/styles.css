@@ -6081,6 +6081,10 @@ a.close.disabled {
   background-color:  #325981;  /* #1abc9c !important; */
 }
 
+.bg-primary2 {
+  background-color:  #141414;
+}
+
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
@@ -10030,6 +10034,11 @@ h3 {
 
 .btn-xl {
   padding: 1rem 1.75rem;
+  font-size: 1.25rem;
+}
+
+.btn-xl2 {
+  padding: 1rem 4rem;
   font-size: 1.25rem;
 }
 
