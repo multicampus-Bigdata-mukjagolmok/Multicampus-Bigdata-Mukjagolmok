@@ -124,6 +124,16 @@
                     </div>
                     {% endfor %}
                 </div>
+                <h5>
+                    {% if restaurants.has_previous %}
+                        <a style="color:balck;" href='?page={{restaurants.number|add:-1}}'>이전페이지</a>
+                    {% endif %}
+                    Page {{ restaurants.number }} / {{ restaurants.paginator.num_pages }}
+                    {% if restaurants.has_next %}
+                        <a href='?page={{restaurants.number|add:+1}}'>다음페이지</a>
+                    {% endif %}
+                </h5>
+            <br><br><br>
             </div>
         </div>
 

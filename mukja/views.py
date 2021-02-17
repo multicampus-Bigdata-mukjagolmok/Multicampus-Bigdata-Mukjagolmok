@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from mukja.models import Golmok, Restaurant, Menu, Comment
 from .forms import CommentForm
 from django.views.generic import UpdateView
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -18,9 +19,12 @@ def golmok(request, pk):
     golmok_pk = pk
     mukjagolmok = Golmok.objects.get(id=pk)
     restaurants = Restaurant.objects.filter(golmok_id=golmok_pk)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(restaurants, 3)
+    restaurantspage = paginator.get_page(page)
     context = {
         'mukjagolmok': mukjagolmok,
-        'restaurants': restaurants,
+        'restaurants': restaurantspage,
     }
     return render(request, "golmok.html", context)
 
