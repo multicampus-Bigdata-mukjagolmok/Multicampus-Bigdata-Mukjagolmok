@@ -26,10 +26,10 @@ class Restaurant(models.Model):
     golmok = models.ForeignKey(Golmok, blank=True, null=True, on_delete=models.SET_NULL)
     # images = models.CharField(max_length=50, null=True)
 
-    description = MarkdownxField()
+    description = MarkdownxField(null=True)
     head_image = models.ImageField(upload_to='blog/%Y/%m/%d/', blank=True)
-    created = models.DateTimeField(auto_now_add=True)  # 포스트가 생성이 될 때 created에 자동으로 담아주게 된다.
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=1)
+    created = models.DateTimeField(auto_now_add=True, null=True)  # 포스트가 생성이 될 때 created에 자동으로 담아주게 된다.
+    # author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default=1)
 
 
 
