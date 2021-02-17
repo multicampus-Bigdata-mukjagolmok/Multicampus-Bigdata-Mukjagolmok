@@ -61,12 +61,13 @@
 
         {% load socialaccount %}
 
-        <!-- Modal -->
+       <!-- Modal -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Please Log in</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class = 'row'>
@@ -80,6 +81,9 @@
 
                             </div>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -141,7 +145,7 @@
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
             {% if c.author == request.user %}
-            <button class="btn btn-sm btn-info float-right" onclick="location.href='/mukja/edit_comment/{{ c.pk }}/'">edit</button>
+<!--            <button class="btn btn-sm btn-info float-right" onclick="location.href='/mukja/edit_comment/{{ c.pk }}/'">edit</button>-->
                 <button class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#deleteCommentModal-{{ c.pk }}">delete</button>
 <!--                <button class="btn btn-sm btn-warning float-right" onclick="location.href='/mukja/delete_comment/{{ c.pk }}/'">delete</button>&ndash;&gt;-->
 
@@ -155,7 +159,8 @@
 
       {% for c in comment %}
       {% if request.user == c.author %} <!-- user는 request.user랑 똑같음!! -->
-      <!-- Modal -->
+
+        <!-- Modal -->
       <div class="modal fade" id="deleteCommentModal-{{ c.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -167,8 +172,9 @@
               <p>{{ c.get_markdown_content | safe }}</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary" onclick="location.href='/mukja/delete_comment/{{ c.pk }}/'">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
             </div>
           </div>
         </div>
