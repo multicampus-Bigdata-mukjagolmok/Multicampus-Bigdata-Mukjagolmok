@@ -37,7 +37,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">{{ user }} <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="dropdown" href="#" id="download">{{ user }} <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="download">
                             {#                        <a class="dropdown-item" href="https://jsfiddle.net/bootswatch/3he50zsf/">Open in JSFiddle</a>#}
                             {#                        <div class="dropdown-divider"></div>#}
@@ -71,14 +71,14 @@
       <!-- Title -->
       <h1 class="mt-4">{{ restaurant.name|linebreaksbr }}</h1>
 
-      <!-- Date/Time -->
-      <h5>Contact Number : {{ restaurant.phone_number }}</h5>
-      <h5>Address : {{ restaurant.address }}</h5>
-
       <hr>
 
       <!-- Preview Image -->
       <img width="280" class="img-fluid rounded" src="{{ restaurant.head_image.url }}" alt="">
+
+      <!-- Date/Time -->
+      <h5>Contact Number : {{ restaurant.phone_number }}</h5>
+      <h5>Address : {{ restaurant.address }}</h5>
 
       <hr>
       <h5 class="card-text">MENU</h5>
@@ -159,57 +159,7 @@
           <!-- kakao map end -->
         </div>
       </div>
-
-      <!-- Search Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Search</h5>
-        <div class="card-body">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Categories Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Categories</h5>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-6">
-              <ul class="list-unstyled mb-0">
-                <li>
-                  <a href="#">Web Design</a>
-                </li>
-                <li>
-                  <a href="#">HTML</a>
-                </li>
-                <li>
-                  <a href="#">Freebies</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <ul class="list-unstyled mb-0">
-                <li>
-                  <a href="#">JavaScript</a>
-                </li>
-                <li>
-                  <a href="#">CSS</a>
-                </li>
-                <li>
-                  <a href="#">Tutorials</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-
   </div>
   <!-- /.row -->
 
