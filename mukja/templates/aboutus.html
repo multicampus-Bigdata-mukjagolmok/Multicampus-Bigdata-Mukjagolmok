@@ -113,8 +113,8 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ml-auto"><p class="lead">Food Alley means </p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">There is a variety of delicious food in Korea. Our website is introducing about the food alley located in Seoul.</p></div>
+                    <div class="col-lg-4 ml-auto"><p class="lead">Food Alley means a commercial area where there is a large floating population to consume something, including restaurants where you can enjoy reliable quality food at a reasonable price.</p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead">There is a variety of delicious food in Korea. Our website is introducing about the food alley located in Seoul.<br>I hope you enjoy searching in this website, as well as enjoying those foods. :D</p></div>
                 </div>
             </div>
         </section>
@@ -148,7 +148,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/cake.png' %}" alt="" />
+                            <img class="img-fluid" src="{% static 'assets/img/portfolio/jaeeun.jpg' %}" alt="" />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -181,16 +181,11 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Location</h4>
                         <p class="lead mb-0">
-                            Multi Campus
+                            Multi Campus<br>428, Seolleung-ro, Gangnam-gu, Seoul, Republic of Korea
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
@@ -204,7 +199,7 @@
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright © Your Website 2020</small></div>
+            <div class="container"><small>Copyright © Mukjagolmok</small></div>
         </div>
         <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
         <div class="scroll-to-top d-lg-none position-fixed">
@@ -267,9 +262,9 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/cake.png' %}" alt="" />
+                                    <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/jaeeun.jpg' %}" alt="" />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-5">🌱 I’m currently learning ... Big data analysis class from Multi-Campus<br>Everything is so new to me, but progressing is what I really pursue.<br>Who knows I'll be a great developer one day? 💁<br>💬 Ask me about Math! I've been working as a math teacher so far.<br>I like teaching as well as learning.<br>😊 Math was my favorite subject when I was a teenager.<br>Well, data is formed by zeros and ones too, isn't it interesting? 🤦🏻</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
@@ -363,19 +358,5 @@
         <script src="{% static 'js/scripts.js' %}"></script>
         <script src="{% static 'js/jquery.min.js' %}"></script>
 	    <script src="{% static 'js/parallax.min.js' %}"></script>
-    	<script>
-            $(document).ready(function(){
-                // Handle click on paging links
-                $('.tm-paging-link').click(function(e){
-                    e.preventDefault();
-
-                    var page = $(this).text().toLowerCase();
-                    $('.tm-gallery-page').addClass('hidden');
-                    $('#tm-gallery-page-' + page).removeClass('hidden');
-                    $('.tm-paging-link').removeClass('active');
-                    $(this).addClass("active");
-                });
-            });
-        </script>
     </body>
 </html>
