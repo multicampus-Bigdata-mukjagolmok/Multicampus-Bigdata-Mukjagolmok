@@ -104,8 +104,8 @@ def register(request):
                             first_name = firstname,
                             last_name = lastname,
                             password = password)
-            auth.login(request, user)
-            redirect("index.html")
+            auth.login(request, user, backend="django.contrib.auth.backends.ModelBackend")
+            return redirect('/mukja/')
     return render(request, 'register.html', res_data)
 
 
