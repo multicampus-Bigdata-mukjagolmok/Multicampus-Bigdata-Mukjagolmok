@@ -69,18 +69,19 @@
     <div class="col-lg-8">
 
       <!-- Title -->
-      <h1 class="mt-4">{{ restaurant.name }}</h1>
+      <h1 class="mt-4">{{ restaurant.name|linebreaksbr }}</h1>
 
       <!-- Date/Time -->
-      <p>Posted on {{ restaurant.created }}</p>
+      <h5>Contact Number : {{ restaurant.phone_number }}</h5>
+      <h5>Address : {{ restaurant.address }}</h5>
 
       <hr>
 
       <!-- Preview Image -->
-      <img class="img-fluid rounded" src="{{ restaurant.head_image }}" alt="">
+      <img width="280" class="img-fluid rounded" src="{{ restaurant.head_image.url }}" alt="">
 
       <hr>
-      <p class="card-text">{{ restaurant.get_markdown_description | safe}}</p>
+      <h5 class="card-text">MENU</h5>
       {% for menu in menus %}
       <p> {{ menu.name }} : {{ menu.price }} </p>
       {% endfor %}

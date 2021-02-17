@@ -118,15 +118,14 @@
                     {% for restaurant in restaurants %}
                     <!-- Blog Post -->
                     <div class="card col-lg-4 mb-5 mx-auto">
-                        <img class="card-img-top" src="{{ restaurant.head_image.url }}" alt="Card image cap">
+                        <img height="280" class="card-img-top" src="{{ restaurant.head_image.url }}" alt="Card image cap">
                         <div class="card-body">
                             <h2 class="card-title" style="text-align: center;">{{ restaurant.name|linebreaksbr }}</h2>
-                            <p class="card-text">{{ restaurant.description | truncatewords:20 }}</p>
-                            <a href="{{ restaurant.get_absolute_url }}" class="btn btn-primary" style="width: 100%;">Read More &rarr;</a>
+                            <p style="margin-bottom: 80px;" class="card-text">{{ restaurant.description | truncatewords:20 }}</p>
+                            <a href="{{ restaurant.get_absolute_url }}" class="btn btn-primary" style="width: 280px; margin-left: 0; position: absolute; bottom: 60px;">Read More &rarr;</a>
                       </div>
                       <div class="card-footer text-muted">
-                        Posted on {{ restaurant.created }}
-                        <a href="#">Start Bootstrap</a>
+                          Contact Number  : {{ restaurant.phone_number }}
                       </div>
                     </div>
                     {% endfor %}
