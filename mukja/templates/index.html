@@ -50,9 +50,9 @@
                         </div>
                     </li>
                 {% else %}
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                            Log in
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <button style="margin-left: 20px; padding-top: 12px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+                            <h5>Log in</h5>
                         </button>
                     </li>
                 {% endif %}
@@ -60,6 +60,37 @@
                 </div>
             </div>
         </nav>
+
+                {% load socialaccount %}
+
+        <!-- Modal -->
+        <div style="color: #325981;" class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div style="padding: 20px; width: 500px;" class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Please Log in</h5>
+                        <button style="width: 100px;" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class = 'row'>
+                            <div class="col-md-6">
+                                <h6 align="middle">Do you already<br>have an account?<br><br></h6>
+                                <a style="width: 190px;" role = 'button' class="btn btn-outline-info" href="{% url 'login' %}"><i class="far fa-envelope"></i> Log in with Email</a>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 align="middle">Create a<br>new account!<br><br></h6>
+                                <a style="width: 190px; vertical-align: middle;" role = 'button' class="btn btn-outline-info" href="{% url 'register' %}"><i class="far fa-envelope"></i> Sign Up with Email</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <h6 align="middle">Creat an account or log in with Google!<br><br></h6>
+                        <a style="width: 100%; padding: 10px;" role = 'button' class="btn btn-outline-primary" href="{% provider_login_url 'google'%}"><i class="fab fa-google"></i> Log in with Google</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Masthead-->
         <header class="masthead text-white text-center" style="background-image: url({%static 'assets/img/background2.jpg'%})">
             <div class="container d-flex align-items-center flex-column">
@@ -77,36 +108,6 @@
                 <p class="masthead-subheading font-weight-light mb-0">Learning Mate</p>
             </div>
         </header>
-
-        {% load socialaccount %}
-
-        <!-- Modal -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Please Log in</h5>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class = 'row'>
-                            <div class="col-md-6">
-                                <a role = 'button' class="btn btn-outline-primary" href="{% provider_login_url 'google'%}"><i class="fab fa-google"></i> Log in with Google</a>
-                                <a role = 'button' class="btn btn-outline-info" href="{% url 'login' %}"><i class="far fa-envelope"></i> Log in with Email</a>
-
-                            </div>
-                            <div class="col-md-6">
-                                <a role = 'button' class="btn btn-outline-info" href="{% url 'register' %}"><i class="far fa-envelope"></i> Sign Up with Email</a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- foodalley Section-->
         <section class="page-section foodalley" id="foodalley">
