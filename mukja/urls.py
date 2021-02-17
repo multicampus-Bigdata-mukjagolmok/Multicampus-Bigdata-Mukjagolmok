@@ -13,4 +13,7 @@ urlpatterns = [
     path('delete_comment/<int:pk>/', views.delete_comment),
     path('edit_comment/<int:pk>/', views.CommentUpdate.as_view()),
     path('restaurant/', views.restaurant),
+    path('register/', views.register, name="register"),
+    path('login/', views.login, name="login"),
+    path('logout/', views.logout, name="logout"),
 ]
