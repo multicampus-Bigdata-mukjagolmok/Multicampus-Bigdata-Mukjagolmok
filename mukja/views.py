@@ -90,8 +90,8 @@ def register(request):
     res_data = None
     if request.method =='POST':
         useremail = request.POST.get('useremail')
-        firstname = request.POST.get('firstname', None)
-        lastname = request.POST.get('lastname', None)
+        firstname = request.POST.get('firstname', 'Unknown')
+        lastname = request.POST.get('lastname', 'Unknown')
         password = request.POST.get('password', None)
         re_password = request.POST.get('re-password',None)
         res_data = {}
