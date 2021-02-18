@@ -2,6 +2,17 @@
 {% load static %}
 
 {% block content %}
+<div class="loader">
+    <div class="wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <span>Loading</span>
+    </div>
+</div>
 
   <div class="container">
     {% if msg  %}
@@ -79,5 +90,11 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright © Mukjagolmok</small></div>
     </div>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(window).on('load', function() {
+          $('.loader').delay("500").fadeOut();
+      });
+</script>
 {% endblock %}
 
