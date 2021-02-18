@@ -96,8 +96,10 @@ def register(request):
         password = request.POST.get('password', None)
         re_password = request.POST.get('re-password',None)
         res_data = {}
-        if User.objects.filter(username=useremail):
+        if User.objects.filter(email=useremail):
             res_data['error']='Your Email address is already registered'
+        elif User.objects.filter(username=username):
+            res_data['error'] = 'Your username is already registered'
         elif password != re_password:
             res_data['error']='Re-password was not equal to password'
         else:
@@ -113,14 +115,14 @@ def register(request):
 
 def login(request):
     if request.method == "POST":
-        useremail = request.POST.get('useremail', None)
+        username = request.POST.get('username', None)
         password = request.POST.get('password', None)
-        user = auth.authenticate(email=useremail, password=password)
+        user = auth.authenticate(username=username, password=password)
         if user is not None :
             auth.login(request, user)
             return redirect("index")
         else :
-            return render(request, 'login.html', {'error': 'Your User Email or Password is Incorrect.'})
+            return render(request, 'login.html', {'error': 'Your Username or Password is Incorrect.'})
     else :
         return render(request, 'login.html')
 
