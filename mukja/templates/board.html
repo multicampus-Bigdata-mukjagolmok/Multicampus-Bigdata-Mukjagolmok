@@ -45,7 +45,11 @@
         <li class="table-row clicktoload" style="cursor: pointer;">
             <div class="col col-1" data-label="ID"><h6>{{ article.id }}</h6></div>
             <div class="col col-2" data-label="author"><h6>{{ article.author }}</h6></div>
-            <div class="col col-3" data-label="title"><h6>{{ article.title }}</h6></div>
+            <div class="col col-3" data-label="title"><h6>{{ article.title }}</h6>
+                {% if article.edited_or_not %}
+                <h6 style="color: #256799;">{{ article.edited_or_not }}</h6>
+                {% endif %}
+            </div>
             <div class="col col-4" data-label="created" style="padding: 0px;"><h6>{{ article.created|date:"Y-m-d A h:i" }}</h6></div>
         </li>
         <div id="show{{ article.id }}" class="hidden" style="padding: 20px 150px; display: block; border: 1px; background-color: white; border-radius: 30px; margin: 0 0 20px 0px; border: 2px dashed #d7e3fa;">

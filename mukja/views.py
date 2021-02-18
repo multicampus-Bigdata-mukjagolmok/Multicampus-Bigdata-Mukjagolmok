@@ -166,6 +166,7 @@ def board_edit(request, pk):
         data = Board.objects.get(pk=pk)
         data.title = request.POST['title']
         data.text = request.POST['text']
+        data.edited_or_not = "(Edited)"
         if data.title=="" or data.text=="":
             msg = "Either Title or Content is Empty."
             context = {'msg': msg}
