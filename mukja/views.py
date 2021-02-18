@@ -89,23 +89,25 @@ def delete_comment(request, pk):
 def register(request):
     res_data = None
     if request.method =='POST':
+        username = request.POST.get('username')
         useremail = request.POST.get('useremail')
-        firstname = request.POST.get('firstname', None)
-        lastname = request.POST.get('lastname', None)
+        firstname = request.POST.get('firstname', 'Unknown')
+        lastname = request.POST.get('lastname', 'Unknown')
         password = request.POST.get('password', None)
         re_password = request.POST.get('re-password',None)
         res_data = {}
         if User.objects.filter(username=useremail):
-            res_data['error']='이미 가입된 아이디(이메일주소)입니다.'
+            res_data['error']='Your Email address is already registered'
         elif password != re_password:
-            res_data['error']='비밀번호가 다릅니다.'
+            res_data['error']='Re-password was not equal to password'
         else:
-            user = User.objects.create_user(username = useremail,
+            user = User.objects.create_user(username = username,
+                            email=useremail,
                             first_name = firstname,
                             last_name = lastname,
                             password = password)
-            auth.login(request, user)
-            redirect("index.html")
+            auth.login(request, user, backend="django.contrib.auth.backends.ModelBackend")
+            return redirect('/mukja/')
     return render(request, 'register.html', res_data)
 
 
@@ -113,12 +115,12 @@ def login(request):
     if request.method == "POST":
         useremail = request.POST.get('useremail', None)
         password = request.POST.get('password', None)
-        user = auth.authenticate(username=useremail, password=password)
+        user = auth.authenticate(email=useremail, password=password)
         if user is not None :
             auth.login(request, user)
             return redirect("index")
         else :
-            return render(request, 'login.html', {'error': '사용자 아이디 또는 패스워드가 틀립니다.'})
+            return render(request, 'login.html', {'error': 'Your User Email or Password is Incorrect.'})
     else :
         return render(request, 'login.html')
 

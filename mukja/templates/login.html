@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}BASE TITLE{% endblock  %}</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  {% block css %}{% endblock %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
   <div class="container">
     {% if msg  %}
         <div class="row mt-5">
@@ -19,37 +11,74 @@
             </div>
         </div>
     {% else %}
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <h1>로그인</h1>
+    <div class="container" style="padding: 0 300px; color: #325981;">
+            <div class="row mt-5" style="text-align: center; padding-top: 200px;">
+                <div class="col-12 text-center">
+                    <h1>Log In</h1>
+                </div>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-12 text-center" style="color:red">
-             {{error}}
+            <div class="row mt-5">
+                <div class="col-12 text-center" style="color:red">
+                    {{error}}
+                </div>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-12">
-                <form method="POST" action="{% url 'login'%}">
-                  {% csrf_token %}
-                  <div class="form-group">
-                      <label for="username">id</label>
-                     <input type="text" class="form-control" id="username"  name="useremail" placeholder="사용자 아이디" >
-                  </div>
-                    <div class="form-group">
-                       <label for="password">password</label>
-                       <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" >
-                    </div>
-                    <button type="submit" class="btn btn-primary">log in</button>
-                </form>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <form method="POST" action="{% url 'login' %}" style="font-weight: bold; font-size: 22px;">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">ID</label>
+                            <input type="text" class="form-control" id="username"  name="useremail" placeholder="username" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="password" >
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 20px;">Log In</button>
+                        <a href="{% url 'register' %}"><button type="button" class="btn btn-primary" style="width: 100%; color: #fff; font-size: 20px; margin-top: 20px; background-color: #3e6794; border-color: #3e6794;">Go To Register</button></a>
+                    </form>
+                </div>
             </div>
-        </div>
     {% endif %}
     <div class="col-12 text-center">
         <a href="{% url 'index' %}">go to main</a>
 
     </div>
+
   </div>
-</body>
-</html>
+
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">
+                        Multi Campus<br>428, Seolleung-ro, Gangnam-gu, Seoul, Republic of Korea
+                    </p>
+                </div>
+                <!-- Footer Contact-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Contact</h4>
+                    <p class="lead mb-0">
+                        For any suggestion or question<br>send an E-mail to :<br>kjeun@gmail.com
+                    </p>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">About Learning Mate</h4>
+                    <p class="lead mb-0">
+                       The Learning Mate is a team of <br>Kim Dae-chan, Kim Jae-eun, <br>Kim Jung-hyun and Lee Haram.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright © Mukjagolmok</small></div>
+    </div>
+{% endblock %}
+

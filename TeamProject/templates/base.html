@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Mukjagolmok</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/food.png' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/maps.css' %}" rel="stylesheet" />
+        <!-- 다중슬라이드 필요한 js, css 를 링크걸어 사용 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/mukja/index/">Map of Seoul Food Alley</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    MENU
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/mukja/index/#foodalley">Food Alley</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/mukja/aboutus/">About</a></li>
+<!--                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>-->
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="dropdown" href="#" id="download">{{ user }} <span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="download">
+                            {#                        <a class="dropdown-item" href="https://jsfiddle.net/bootswatch/3he50zsf/">Open in JSFiddle</a>#}
+                            {#                        <div class="dropdown-divider"></div>#}
+                            {#                        <a class="dropdown-item" href="../4/simplex/bootstrap.min.css">bootstrap.min.css</a>#}
+                            {#                        <a class="dropdown-item" href="../4/simplex/bootstrap.css">bootstrap.css</a>#}
+                            {#                        <div class="dropdown-divider"></div>#}
+                            {#                        <a class="dropdown-item" href="../4/simplex/_variables.scss">_variables.scss</a>#}
+                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <button style="margin-left: 20px; padding-top: 12px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+                            <h5>Log in</h5>
+                        </button>
+                    </li>
+                {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+                {% load socialaccount %}
+
+        <!-- Modal -->
+        <div style="color: #325981;" class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div style="width: 500px; padding: 20px;" class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Please Log in&nbsp;&nbsp;<i class="fas fa-edit"></i></h5>
+                        <button style="width: 100px;" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-body" style="padding: 20px 16px;">
+                        <h6 align="middle">Creat an account or log in with Google!<br><br></h6>
+                        <a style="width: 100%; padding: 20px 0;" role = 'button' class="btn btn-outline-primary" href="{% provider_login_url 'google'%}"><i class="fab fa-google"></i> Log in with Google</a>
+                    </div>
+                    <div class="modal-body" style="padding: 20px 16px;">
+                        <div class = 'row'>
+                            <div class="col-md-6">
+                                <h6 align="middle">Do you already<br>have an account?<br><br></h6>
+                                <a style="width: 100%; padding: 20px 0;" role = 'button' class="btn btn-outline-info" href="{% url 'login' %}"><i class="far fa-envelope"></i> Log in with Email</a>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 align="middle">Create a<br>new account!<br><br></h6>
+                                <a style="width: 100%; padding: 20px 0;" role = 'button' class="btn btn-outline-info" href="{% url 'register' %}"><i class="far fa-envelope"></i> Sign Up with Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% block content %}
+    {% endblock %}
+
+    </body>
+</html>
