@@ -111,10 +111,10 @@
     </div>
 
     <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
+    <div class="col-md-4" id="widget" style="height: 700px;">
 
       <!-- Side Widget -->
-      <div class="card my-4" id="mapwidget">
+      <div class="card my-4">
         <h5 class="card-header">Map of restaurant</h5>
         <div class="card-body">
           <!-- kakao map-->
@@ -122,6 +122,13 @@
           <div id="lat" style="display: none" >{{ restaurant.latitude }}</div>
           <div id="lng" style="display: none" >{{ restaurant.longitude }}</div>
           <!-- kakao map end -->
+        </div>
+      </div>
+      <div class="card my-4" style="height: 200px;">
+        <h5 class="card-header">Discussion</h5>
+        <div class="card-body">
+            <h5>Please visit our BOARD<br>for your discussion</h5>
+            <div style="text-align: center; font-size: 30px;"><a style="color: #8c3232; font-weight: bold;" href="/board/"><i class="far fa-sticky-note"></i>&nbsp&nbspGo To BOARD</a></div>
         </div>
       </div>
     </div>
@@ -206,7 +213,12 @@
 <script>
     $(window).scroll(function( ){  //스크롤이 움직일때마다 이벤트 발생
         var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-        $(mapwidget).stop().animate({top:position+"px"}, 1); //해당 오브젝트 위치값 재설정
+        var positionbottom = $("body").height() - $(window).height() - $(window).scrollTop(); // 현재 스크롤바의 바닥에서부터의 위치값
+        console.log(position)
+        $(widget).stop().animate({top:position+"px"}, 1); //해당 오브젝트 위치값 재설정
+        if ( positionbottom < 200 ) {
+            $(widget).stop().animate({bottom: 200}); // 너무 아래까지 오지는 않게끔
+        }
     });
 </script>
 

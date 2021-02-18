@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from mukja.models import Golmok, Restaurant, Menu, Comment
+from mukja.models import Golmok, Restaurant, Menu, Comment, Board
 from .forms import CommentForm
 from django.views.generic import UpdateView
 from django.core.paginator import Paginator
@@ -130,3 +130,50 @@ def logout(request):
     if request.user.is_authenticated:
         auth.logout(request)
     return redirect("index")
+
+def board(request):
+    page = request.GET.get('page', 1)
+    datas = Board.objects.all().order_by('-id')
+    paginator = Paginator(datas, 5)
+    pagedatas = paginator.get_page(page)
+    context ={"articles": pagedatas}
+    return render(request, 'board.html', context)
+
+def board_create(request):
+    if request.method == "POST":
+        author = request.user
+        title = request.POST['title']
+        text = request.POST['text']
+        data = Board(author=author,title=title,text=text)
+        if title=="" or text=="":
+            msg = "You need to fill in first."
+            context = {'msg': msg}
+            return render(request, "new_article.html", context)
+        else:
+            data.save()
+            return redirect("board")
+    else:
+        return render(request, 'new_article.html')
+
+def board_delete(request):
+    pk = request.GET['pk']
+    data = Board.objects.get(pk=pk)
+    data.delete()
+    return redirect("board")
+
+def board_edit(request, pk):
+    if request.method == "POST" :
+        data = Board.objects.get(pk=pk)
+        data.title = request.POST['title']
+        data.text = request.POST['text']
+        if data.title=="" or data.text=="":
+            msg = "Either Title or Content is Empty."
+            context = {'msg': msg}
+            return render(request, "edit_article.html", context)
+        else:
+            data.save()
+            return redirect("board")
+    else:
+        data = Board.objects.get(pk=pk)
+        context = {'data': data}
+        return render(request, "edit_article.html", context)

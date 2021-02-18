@@ -16,4 +16,8 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('login/', views.login, name="login"),
     path('logout/', views.logout, name="logout"),
+    path('board/', views.board, name="board"),
+    path('board/create/', views.board_create, name="board_create"),
+    path('board/delete/', views.board_delete, name="board_delete"),
+    path('board/edit/<int:pk>/', views.board_edit, name="board_edit"),
 ]

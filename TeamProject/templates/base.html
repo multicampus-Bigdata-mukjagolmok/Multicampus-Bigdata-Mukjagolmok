@@ -21,6 +21,7 @@
         <!-- 다중슬라이드 필요한 js, css 를 링크걸어 사용 -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+        <style>{% block css %}{% endblock %}</style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -35,6 +36,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/mukja/index/#foodalley">Food Alley</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/mukja/aboutus/">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/mukja/board/">Board</a></li>
 <!--                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>-->
                     {% if user.is_authenticated %}
                         <li class="nav-item dropdown">

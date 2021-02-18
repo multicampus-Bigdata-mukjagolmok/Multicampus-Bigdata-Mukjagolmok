@@ -164,8 +164,8 @@ a {
   background-color: transparent;
 }
 a:hover {
-  color: #117964;
-  text-decoration: underline;
+  color: #d98f8f;
+  text-decoration: none;
 }
 
 a:not([href]):not([class]) {
@@ -10176,7 +10176,7 @@ h3 {
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  background-color: #d67474;
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;
@@ -10393,3 +10393,7 @@ form .row:first-child .floating-label-form-group {
     left:15%;
 }
 /*로딩효과 끝*/
+
+.hidden {
+  display: none !important; /* hidden class 부여하면 안 보이게 */
+}

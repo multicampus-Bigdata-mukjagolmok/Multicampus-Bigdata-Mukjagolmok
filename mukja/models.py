@@ -63,3 +63,14 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return self.restaurant.get_absolute_url() + '#comment-id-{}'.format(self.pk)  # 해당 댓글로 바로 이동하기 위함.
+
+
+class Board(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=25)
+    text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    edited_or_not = models.CharField(max_length=20, null=True)
+
+    def __str__(self):
+        return self.author

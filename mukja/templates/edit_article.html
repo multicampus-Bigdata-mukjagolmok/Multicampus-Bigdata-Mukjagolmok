@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="loader">
+    <div class="wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <span>Loading</span>
+    </div>
+</div>
+
+<!-- Masthead-->
+<header class="masthead text-white text-center" style="background-image: url({%static 'assets/img/background2.jpg'%})">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'assets/img/projecticon2.png' %}" alt="" />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">map of seoul food alley</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Learning Mate</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="container" style="padding: 0 150px; color: #325981;">
+        <div class="row mt-5" style="text-align: center; padding-top: 20px;">
+            <div class="col-12 text-center">
+                <h1>Write any Suggestion or Question <i class="fas fa-pen-alt"></i></h1>
+            </div>
+        </div>
+    <div class="row mt-5" style="padding-bottom: 100px;">
+        <div class="col-12">
+            <form method="POST" action="/board/edit/{{ data.id }}/" style="font-weight: bold; font-size: 22px;">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">TITLE</label>
+                    <input type="text" class="form-control" id="title"  name="title" value="{{ data.title }}" minlength="1" maxlength="25">
+                </div>
+                <div class="form-group">
+                    <label for="text">CONTENT</label>
+                    <textarea class="form-control" rows="10" id="text" name="text" minlength="1">{{ data.text }}</textarea>
+                </div>
+                {% if data.author == request.user %}
+                <h4 style="color: #d14b4b;">{{ msg }}</h4>
+                <button id="post" type="submit" class="btn btn-xl2 btn-outline-light" style="width: 100%; font-size: 20px;">EDIT</button>
+                <a href="{% url 'board' %}"><button type="button" class="btn btn-primary" style="width: 100%; color: #fff; font-size: 20px; margin-top: 20px; background-color: #3e6794; border-color: #3e6794;"><i class="fas fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;&nbsp;CANCEL</button></a>
+                {% else %}
+                <h4 style="color: #d14b4b;">You have no authority to edit this.</h4>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">
+                        Multi Campus<br>428, Seolleung-ro, Gangnam-gu, Seoul, Republic of Korea
+                    </p>
+                </div>
+                <!-- Footer Contact-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">github</h4>
+                    <p class="lead mb-0">
+                        For more information about our projects<br><br><a style="color:white" href="https://github.com/multicampus-Bigdata-mukjagolmok">visit our github</a>
+                    </p>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">About Learning Mate</h4>
+                    <p class="lead mb-0">
+                       The Learning Mate is a team of <br>Kim Dae-chan, Kim Jae-eun, <br>Kim Jung-hyun and Lee Haram.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright © Mukjagolmok</small></div>
+    </div>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(window).on('load', function() {
+          $('.loader').delay("500").fadeOut();
+      });
+</script>
+
+
+{% endblock %}
+
+{% block css %}
+
+.btn-outline-light:hover {
+    color: #fcfcfc;
+    background-color: #325981;
+    border-color: #325981;
+}
+.btn-outline-light {
+    color: #325981;
+    border-color: #325981;
+}
+{% endblock %}
