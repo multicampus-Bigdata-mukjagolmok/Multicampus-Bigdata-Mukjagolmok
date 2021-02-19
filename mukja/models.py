@@ -68,9 +68,10 @@ class Comment(models.Model):
 class Board(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=25)
-    text = models.TextField()
+    subtitle = models.CharField(max_length=25)
+    text = models.TextField(max_length=25)
     created = models.DateTimeField(auto_now_add=True)
     edited_or_not = models.CharField(max_length=20, null=True)
 
     def __str__(self):
-        return self.author
+        return self.title

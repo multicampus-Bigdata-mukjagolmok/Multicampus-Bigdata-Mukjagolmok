@@ -143,8 +143,9 @@ def board_create(request):
     if request.method == "POST":
         author = request.user
         title = request.POST['title']
+        subtitle = request.POST['subtitle']
         text = request.POST['text']
-        data = Board(author=author,title=title,text=text)
+        data = Board(author=author,subtitle=subtitle, title=title,text=text)
         if title=="" or text=="":
             msg = "You need to fill in first."
             context = {'msg': msg}
@@ -165,6 +166,7 @@ def board_edit(request, pk):
     if request.method == "POST" :
         data = Board.objects.get(pk=pk)
         data.title = request.POST['title']
+        data.subtitle = request.POST['subtitle']
         data.text = request.POST['text']
         data.edited_or_not = "(Edited)"
         if data.title=="" or data.text=="":

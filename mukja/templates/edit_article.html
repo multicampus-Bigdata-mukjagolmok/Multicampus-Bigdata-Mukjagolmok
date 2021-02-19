@@ -48,6 +48,13 @@
                     <input type="text" class="form-control" id="title"  name="title" value="{{ data.title }}" minlength="1" maxlength="25">
                 </div>
                 <div class="form-group">
+                    <label for="subtitle">TYPE</label>
+                    <select name="subtitle" class="form-control" id="subtitle"  minlength="1" maxlength="25">
+                        <option value="Suggestion">Suggestion</option>
+                        <option value="Question">Question</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="text">CONTENT</label>
                     <textarea class="form-control" rows="10" id="text" name="text" minlength="1">{{ data.text }}</textarea>
                 </div>
