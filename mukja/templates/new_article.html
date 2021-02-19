@@ -41,7 +41,7 @@
         </div>
     <div class="row mt-5" style="padding-bottom: 100px;">
         <div class="col-12">
-            <form method="POST" action="{% url 'board_create' %}" style="font-weight: bold; font-size: 22px;">
+            <form method="POST" action="/mukja/board/create/" style="font-weight: bold; font-size: 22px;">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="title">TITLE</label>

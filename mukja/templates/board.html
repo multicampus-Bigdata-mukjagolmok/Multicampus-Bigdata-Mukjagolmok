@@ -65,8 +65,8 @@
             {% if article.author == request.user %}
             <hr>
             <div style="text-align: center;">
-                <button class="btn btn-primary temp" style="width: 200px; margin: 0px 20px;" onclick="location.href='/board/edit/{{ article.id }}/'">EDIT</button>
-                <button class="btn btn-primary temp" style="width: 200px; margin: 0px 20px;" onclick="location.href='{% url 'board_delete' %}?pk={{ article.id }}'">REMOVE</button>
+                <button class="btn btn-primary temp" style="width: 200px; margin: 0px 20px;" onclick="location.href='/mukja/board/edit/{{ article.id }}/'">EDIT</button>
+                <button class="btn btn-primary temp" style="width: 200px; margin: 0px 20px;" onclick="location.href='/mukja/board/delete/?pk={{ article.id }}'">REMOVE</button>
             </div>
             {% endif %}
         </div>
@@ -86,7 +86,7 @@
     </h3>
     <div id="btndiv" style="padding: 50px;">
         {% if request.user.is_authenticated %}
-        <button onclick="location.href='/board/create/'" class="mt-4 btn btn-xl2 btn-outline-light">WRITE</button>
+        <button onclick="location.href='/mukja/board/create/'" class="mt-4 btn btn-xl2 btn-outline-light">WRITE</button>
         {% else %}
         <h6>You need to log in first to write.</h6>
         {% endif %}
